@@ -24,6 +24,9 @@ Bundle 'captbaritone/better-indent-support-for-php-with-html'
 " Base16 VIM
 Plugin 'chriskempson/base16-vim'
 
+" For Tabularizing arrays in PHP
+Plugin 'godlygeek/tabular'
+
 call vundle#end()
 filetype plugin indent on
 
