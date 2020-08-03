@@ -53,6 +53,8 @@ set hlsearch " Highlight search matches
 " Clear highlighting on escape in normal mode
 nnoremap <esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[
+" Set abbreviation for expanding a PHP tag
+au filetype php :iabbrev php <?php ?><Left><Left><Left>
 
 " Custom Colours
 hi User1 ctermfg=252 ctermbg=238
