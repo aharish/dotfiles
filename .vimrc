@@ -27,6 +27,9 @@ Plugin 'chriskempson/base16-vim'
 " For Tabularizing arrays in PHP
 Plugin 'godlygeek/tabular'
 
+" For Markdown Syntax highlighting, rules and key mappings
+Plugin 'plasticboy/vim-markdown'
+
 call vundle#end()
 filetype plugin indent on
 
