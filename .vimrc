@@ -27,6 +27,12 @@ Plugin 'chriskempson/base16-vim'
 " For Tabularizing arrays in PHP
 Plugin 'godlygeek/tabular'
 
+" Modern JavaScript syntax highlighting
+Plugin 'yuezk/vim-js'
+
+" Syntax highlighting for React JSX
+Plugin 'MaxMEllon/vim-jsx-pretty'
+
 " For Markdown Syntax highlighting, rules and key mappings
 Plugin 'plasticboy/vim-markdown'
 
