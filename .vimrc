@@ -15,6 +15,9 @@ Plugin 'mattn/emmet-vim'
 " NERDTree for Vim
 Plugin 'preservim/nerdtree'
 
+" Git for Vim
+Plugin 'tpope/vim-fugitive'
+
 " NERDTree Git Plugin
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
