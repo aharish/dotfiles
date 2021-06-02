@@ -175,36 +175,115 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Disable window titles
+new_window pixel 0
+new_float  pixel 0
+
+# Gaps, to use this install the i3-gaps branch
+gaps inner 15
+gaps outer 0
+smart_gaps on
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-  status_command i3status
-  colors {
-    background #151515
-    statusline #F5F5F5
-    separator  #505050
-
-    focused_workspace  #738747 #90A959 #151515
-    active_workspace   #151515 #151515 #F5F5F5
-    inactive_workspace #151515 #151515 #D0D0D0
-    urgent_workspace   #AC4142 #AC4142 #D0D0D0
-    binding_mode       #AC4142 #AC4142 #d0d0d0
-  }
-  font pango:Noto Sans Medium 10
-}
+#bar {
+#  status_command i3status
+#  colors {
+#    background #151515
+#    statusline #F5F5F5
+#    separator  #505050
+#
+#    focused_workspace  #738747 #90A959 #151515
+#    active_workspace   #151515 #151515 #F5F5F5
+#    inactive_workspace #151515 #151515 #D0D0D0
+#    urgent_workspace   #AC4142 #AC4142 #D0D0D0
+#    binding_mode       #AC4142 #AC4142 #d0d0d0
+#  }
+#  font pango:Noto Sans Medium 10
+#}
 
 # Set the wallpaper upon launch
-exec_always feh --bg-fill --no-startup-id ~/Pictures/wallpaper.png
+exec_always feh --bg-tile --no-startup-id ~/Pictures/dolphins-cl.png
+
+# Set a bg color, without an image.
+#exec_always --no-startup-id xsetroot -solid '#808080'
 
 # Align window titles to the center
 title_align center
 
 # Colours for i3
 # class                 border  bground text    indicator child_border
-client.focused          #738747 #90A959 #151515 #738747   #738747
-client.focused_inactive #404040 #505050 #A8A8A8 #404040   #404040
-client.unfocused        #111111 #151515 #A8A8A8 #111111   #111111
-client.urgent           #8A3435 #AC4142 #D6A0A1 #8A3435   #8A3435
-client.placeholder      #151515 #151515 #A8A8A8 #151515   #151515
+#client.focused          #738747 #90A959 #151515 #738747   #738747
+#client.focused_inactive #404040 #505050 #A8A8A8 #404040   #404040
+#client.unfocused        #111111 #151515 #A8A8A8 #111111   #111111
+#client.urgent           #8A3435 #AC4142 #D6A0A1 #8A3435   #8A3435
+#client.placeholder      #151515 #151515 #A8A8A8 #151515   #151515
 
-client.background       #151515
+#client.background       #151515
+
+set $base00 #292D3E
+set $base01 #444267
+set $base02 #32374D
+set $base03 #676E95
+set $base04 #8796B0
+set $base05 #959DCB
+set $base06 #959DCB
+set $base07 #FFFFFF
+set $base08 #F07178
+set $base09 #F78C6C
+set $base0A #FFCB6B
+set $base0B #C3E88D
+set $base0C #89DDFF
+set $base0D #82AAFF
+set $base0E #C792EA
+set $base0F #FF5370
+
+# Basic bar configuration using the Base16 variables.
+bar {
+    status_command i3blocks
+    strip_workspace_numbers yes
+
+    colors {
+        background $base00
+        separator  $base01
+        statusline $base04
+
+        # State             Border  BG      Text
+        focused_workspace   $base00 $base00 $base09
+        active_workspace    $base00 $base00 $base09
+        inactive_workspace  $base00 $base00 $base04
+        urgent_workspace    $base00 $base00 $base08
+        binding_mode        $base00 $base00 $base0A
+    }
+  font pango:Noto Sans Medium, Font Awesome 5 Free, Font Awesome 5 Brands 10
+}
+
+# Basic color configuration using the Base16 variables for windows and borders.
+# Property Name         Border  BG      Text    Indicator Child Border
+client.focused          $base05 $base0D $base00 $base0D $base0C
+client.focused_inactive $base01 $base01 $base05 $base03 $base01
+client.unfocused        $base01 $base00 $base05 $base01 $base01
+client.urgent           $base08 $base08 $base00 $base08 $base08
+client.placeholder      $base00 $base00 $base05 $base00 $base00
+client.background       $base07
+
+
+# Screenshot utils
+# Multi-screen screenshots with scrot
+bindsym --release Print exec scrot -u 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
+
+# Open these apps in a floating window
+for_window [class="TelegramDesktop" instance="telegram-desktop"] floating enable
+for_window [class="Firefox" instance="Devtools"]                 floating enable
+for_window [window_role="pop-up"]                                floating enable
+for_window [window_role="bubble"]                                floating enable
+for_window [window_role="task_dialog"]                           floating enable
+for_window [window_role="Preferences"]                           floating enable
+for_window [window_type="dialog"]                                floating enable
+for_window [window_type="menu"]                                  floating enable
+
+# Open in specific workspaces
+assign [class="TelegramDesktop" instance="telegram-desktop"] $ws4
+
+# Switch to Urgent Workspace
+bindsym $mod+x [urgent=latest] focus
