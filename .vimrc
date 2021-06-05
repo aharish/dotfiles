@@ -50,6 +50,19 @@ let g:NERDTreeQuitOnOpen = 1 " Close NERDTree after selecting a file to open
 " let g:WebDevIconsUnicodeDecorateFileNodes = 1
 " let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+                \ 'Modified'  :'✹',
+                \ 'Staged'    :'✚',
+                \ 'Untracked' :'✭',
+                \ 'Renamed'   :'➜',
+                \ 'Unmerged'  :'═',
+                \ 'Deleted'   :'✖',
+                \ 'Dirty'     :'✗',
+                \ 'Ignored'   :'☒',
+                \ 'Clean'     :'✔︎',
+                \ 'Unknown'   :'?',
+                \ }
+
 " Basic WebDev Config
 set number
 syntax on
