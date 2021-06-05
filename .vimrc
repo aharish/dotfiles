@@ -66,7 +66,12 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
 " Basic WebDev Config
 set number
 syntax on
-colorscheme slate
+" Set base16 helper
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+colorscheme base16-material-palenight
 set tabstop=2
 set shiftwidth=2 " Sets the number of spaces for reindentation
 set expandtab " Sets to spaces instead of tab
