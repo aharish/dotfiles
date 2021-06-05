@@ -85,11 +85,12 @@ nnoremap <esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[
 " Set abbreviation for expanding a PHP tag
 au filetype php :iabbrev php <?php ?><Left><Left><Left>
+au filetype scss setlocal shiftwidth=2 tabstop=2 noexpandtab 
 
 " Custom Colours
-hi User1 ctermfg=252 ctermbg=238
-hi User2 ctermfg=252 ctermbg=16
-hi User3 ctermfg=15 ctermbg=31
+hi User1 ctermfg=252 ctermbg=18
+hi User2 ctermfg=252 ctermbg=19
+hi User3 ctermfg=15 ctermbg=18
 
 " Vim Statusline Config
 set laststatus=2
