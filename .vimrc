@@ -72,6 +72,12 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
                 \ 'Unknown'   :'?',
                 \ }
 
+" Add Powerline symbols to Vim Airline
+let g:airline_powerline_fonts = 1
+
+" Setup Vim Airline to use base16 colour scheme
+let g:airline_theme='base16'
+
 " Basic WebDev Config
 set number
 syntax on
