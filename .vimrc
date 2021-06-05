@@ -39,6 +39,15 @@ Plugin 'MaxMEllon/vim-jsx-pretty'
 " For Markdown Syntax highlighting, rules and key mappings
 Plugin 'plasticboy/vim-markdown'
 
+" Vim Airline for the Vim statusline
+Plugin 'vim-airline/vim-airline'
+
+" Vim Airline Themes
+Plugin 'vim-airline/vim-airline-themes'
+
+" Tmuxline
+Plugin 'edkolev/tmuxline.vim'
+
 call vundle#end()
 filetype plugin indent on
 
